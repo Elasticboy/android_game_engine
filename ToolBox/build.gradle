@@ -9,7 +9,7 @@ android {
         minSdkVersion project.ANDROID_BUILD_MIN_SDK_VERSION as int
         targetSdkVersion project.ANDROID_BUILD_TARGET_SDK_VERSION as int
         versionCode 1
-        versionName "Alpha"
+        versionName 'Alpha'
     }
 
     compileOptions {
@@ -22,10 +22,27 @@ android {
 //        jniLibs.srcDir 'src/main/libs'
     }
 
+    flavorDimensions ('abi')
     productFlavors {
-        x86.ndk { abiFilter "x86" }
-        mips.ndk { abiFilter "mips" }
-        armv7.ndk { abiFilter "armeabi-v7a" }
-        arm.ndk { abiFilter "armeabi" }
+
+        x86 {
+            flavorDimension 'abi'
+            ndk { abiFilter 'x86' }
+        }
+
+        mips {
+            flavorDimension 'abi'
+            ndk { abiFilter 'mips' }
+        }
+
+        armv7 {
+            flavorDimension 'abi'
+            ndk { abiFilter 'armeabi-v7a' }
+        }
+
+        arm {
+            flavorDimension 'abi'
+            ndk { abiFilter 'armeabi' }
+        }
     }
 }
