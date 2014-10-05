@@ -3,6 +3,7 @@ package org.es.engine.toolbox.pathfinding;
 import android.graphics.Point;
 
 import java.util.ArrayList;
+import java.util.BitSet;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
@@ -11,34 +12,25 @@ import java.util.Stack;
  * Created by lebronneck on 24/02/14.
  */
 public class ShortestPath {
-//
-//    /**
-//     * Calculate the shortest path from a start node and a goal node.
-//     * @return The list of the shortest path the wave will take.
-//     */
-//    public ArrayList<Point> nativeFindShortestPath(int startX, int startY, int goalX, int goalY, int[][] tiles);
 
-
-    // TODO parameters should probably be pass as a data structure
-    public ShortestPath() {
-        // TODO Parameters
+    private static boolean isWalkable(int tile) {
+        return tile != 1;
     }
 
     /**
      * Find the neighbors of the node
      *
      * @param node
-     * @param goal
      * @param tiles
      * @return
      */
-    private static ArrayList<Node> findNeighbors(Node node, Node goal, int[][] tiles) {
+    private static ArrayList<Node> findNeighbors(Node node, int[][] tiles) {
         ArrayList<Node> nodes = new ArrayList<>();
 
         // TODO Replace "1" not buidable by enum
         // look EST
         if (node.getX() - 1 >= 0) {
-            if (tiles[node.getY()][node.getX() - 1] != 1) {
+            if (isWalkable(tiles[node.getY()][node.getX() - 1])) {
                 Node n = new Node(node.getX() - 1, node.getY());
                 nodes.add(n);
             }
@@ -46,7 +38,7 @@ public class ShortestPath {
 
         // look WEST
         if (node.getX() + 1 < tiles[0].length) {
-            if (tiles[node.getY()][node.getX() + 1] != 1) {
+            if (isWalkable(tiles[node.getY()][node.getX() + 1])) {
                 Node n = new Node(node.getX() + 1, node.getY());
                 nodes.add(n);
             }
@@ -54,7 +46,7 @@ public class ShortestPath {
 
         // look NORTH
         if (node.getY() - 1 >= 0) {
-            if (tiles[node.getY() - 1][node.getX()] != 1) {
+            if (isWalkable(tiles[node.getY() - 1][node.getX()])) {
                 Node n = new Node(node.getX(), node.getY() - 1);
                 nodes.add(n);
             }
@@ -62,7 +54,7 @@ public class ShortestPath {
 
         // look SOUTH
         if (node.getY() + 1 < tiles.length) {
-            if (tiles[node.getY() + 1][node.getX()] != 1) {
+            if (isWalkable(tiles[node.getY() + 1][node.getX()])) {
                 Node n = new Node(node.getX(), node.getY() + 1);
                 nodes.add(n);
             }
@@ -125,10 +117,6 @@ public class ShortestPath {
 
         // Node score path
         Map<String, Double> g = new HashMap<>();
-        //Map<String,Double> f = new HashMap<>();
-
-        // debug Scoot
-        //ArrayList<Point> debugNode = new ArrayList<>();
 
         // Push the start Node
         open.push(nodeStart);
@@ -136,7 +124,6 @@ public class ShortestPath {
         // First cost at 0
         g.put(nodeStart.nodeName(), 0d);
         // Compute the estimated cost to the goal
-        //f.put(nodeStart.nodeName(),heuristic(nodeStart, nodeGoal));
         nodeStart.setF(heuristic(nodeStart, nodeGoal));
 
         while (open.size() > 0) {
@@ -201,7 +188,7 @@ public class ShortestPath {
                 closed.put(node.nodeName(), true);
 
                 // Find all neighbors of the actual popped node
-                for (Node nextNode : findNeighbors(node, nodeGoal, tiles)) {
+                for (Node nextNode : findNeighbors(node, tiles)) {
                     boolean lesserScore = false;
 
                     // Skip if the neighbor node is in the closed list

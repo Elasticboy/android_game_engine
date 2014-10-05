@@ -2,7 +2,7 @@ package org.es.engine.toolbox.pathfinding;
 
 /**
  * Created by lebronneck on 24/02/14.
- *
+ * <p/>
  * Node's structure
  * Gets the position and keeps the parent node
  */
@@ -14,70 +14,37 @@ public class Node {
     private double mG = 0d;
     private double mF = 0d;
 
-    public Node(int x, int y)
-    {
-        this.mX = x;
-        this.mY = y;
+    public Node(int x, int y) {
+        mX = x;
+        mY = y;
     }
 
-    public String nodeName()
-    {
-        return mX + "x" + mY;
-    }
+    public String nodeName() { return mX + "x" + mY; }
 
-    public void setParentNode(Node parentNode)
-    {
-        mParentNode = parentNode;
-    }
+    public void setParentNode(Node parentNode) { mParentNode = parentNode; }
 
     @Override
-    public boolean equals(Object o)
-    {
-        if (o instanceof Node)
-        {
-            Node node = (Node) o;
-
-            if(this.mX == node.mX && this.mY == node.mY)
-            {
-                return true;
-            }
+    public boolean equals(Object object) {
+        if (object instanceof Node) {
+            Node node = (Node) object;
+            return mX == node.mX && mY == node.mY;
         }
         return false;
     }
 
-    public int getX() {
-        return mX;
-    }
+    public int getX() { return mX; }
 
-    public void setX(int x) {
-        this.mX = x;
-    }
+    public void setX(int x) { mX = x; }
 
-    public int getY() {
-        return mY;
-    }
+    public int getY() { return mY; }
 
-    public void setY(int y) {
-        this.mY = y;
-    }
+    public Node getParentNode() { return mParentNode; }
 
-    public Node getParentNode() {
-        return mParentNode;
-    }
+    public double getG() { return mG; }
 
-    public double getG() {
-        return mG;
-    }
+    public void setG(double g) { mG = g; }
 
-    public void setG(double g) {
-        this.mG = g;
-    }
+    public double getF() { return mF; }
 
-    public double getF() {
-        return mF;
-    }
-
-    public void setF(double f) {
-        this.mF = f;
-    }
+    public void setF(double f) { mF = f; }
 }
