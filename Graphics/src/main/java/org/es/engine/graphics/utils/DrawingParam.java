@@ -31,6 +31,12 @@ public class DrawingParam {
         mCoefficient = coefficient;
         fixOffsetIntegrity();
     }
+    public void setCoef(float coefficient, float dx, float dy) {
+        mCoefficient = coefficient;
+        mOffset.x += dx;
+        mOffset.y += dy;
+        fixOffsetIntegrity();
+    }
 
     public void setViewport(float viewportWidth, float viewportHeight) {
         mViewportWidth = viewportWidth;
@@ -61,7 +67,7 @@ public class DrawingParam {
     }
 
     /**
-     * Add dx and dy to the current offset.
+     * Adds dx and dy to the current offset.
      * The new offset values are limited by
      * the lower bounds getMinX and getMinY and
      * the upper bound MAX_OFFSET (same value for x and y).

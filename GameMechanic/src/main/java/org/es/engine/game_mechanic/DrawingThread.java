@@ -19,14 +19,14 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  */
 public abstract class DrawingThread extends Thread {
 
-    private static final String TAG = "DrawingThread";
+    private static final String TAG = DrawingThread.class.getSimpleName();
 
     private final SurfaceHolder mSurfaceHolder;
     private final Resources mResources;
     private ConcurrentLinkedQueue<InputEvent> mEventQueue = new ConcurrentLinkedQueue<>();
 
     /** Number of frame we wish to draw per second. */
-    private int mFrameRate = 20;
+    private int mFrameRate = 30;
     /** The time a frame is suppose to stay on screen in milliseconds. */
     private int mFrameDuration = 1000 / mFrameRate;
     /** Indicate whether the thread is suppose to draw or not. */
@@ -56,7 +56,9 @@ public abstract class DrawingThread extends Thread {
                 }
             } else {
                 // We are running late !
-                Log.d(TAG, "Running late ! " + waitingTimeMillis);
+                if (BuildConfig.DEBUG) {
+                    Log.d(TAG, "Running late ! " + waitingTimeMillis);
+                }
             }
         }
     }
