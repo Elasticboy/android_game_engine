@@ -19,10 +19,10 @@ public class BitmapAnimation extends Animation {
     /**
      * Constructor taking a bitmap array.
      *
-     * @param bitmaps The animation bitmaps.
+     * @param bitmaps       The animation bitmaps.
      * @param frameDuration Frame duration in milliseconds.
-     * @param isLoop True if the animation is supposed to play loop.
-     * @param callback The object that will be called when the animation ends.
+     * @param isLoop        True if the animation is supposed to play loop.
+     * @param callback      The object that will be called when the animation ends.
      */
     public BitmapAnimation(Bitmap[] bitmaps, float frameDuration, boolean isLoop, AnimationCallback callback) {
         super(frameDuration, isLoop, callback);
@@ -32,11 +32,11 @@ public class BitmapAnimation extends Animation {
     /**
      * Constructor that will load a bitmap array from the resources.
      *
-     * @param resources Context resources used to load animation bitmaps.
-     * @param resourceIds The resource ids used to instantiate animation bitmaps.
+     * @param resources     Context resources used to load animation bitmaps.
+     * @param resourceIds   The resource ids used to instantiate animation bitmaps.
      * @param frameDuration Frame duration in milliseconds.
-     * @param isLoop True if the animation is supposed to play loop.
-     * @param callback The object that will be called when the animation ends.
+     * @param isLoop        True if the animation is supposed to play loop.
+     * @param callback      The object that will be called when the animation ends.
      */
     public BitmapAnimation(Resources resources, int[] resourceIds, float frameDuration, boolean isLoop, AnimationCallback callback) {
         this(getBitmapsFromResources(resources, resourceIds), frameDuration, isLoop, callback);
@@ -45,7 +45,7 @@ public class BitmapAnimation extends Animation {
     /**
      * Loads an array of bitmaps from the Resources.
      *
-     * @param resources The Resources from which to load the bitmaps.
+     * @param resources   The Resources from which to load the bitmaps.
      * @param resourceIds The ids of the resources to load.
      * @return The array of loaded bitmaps.
      */

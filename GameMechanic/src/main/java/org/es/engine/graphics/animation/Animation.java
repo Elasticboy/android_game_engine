@@ -34,8 +34,8 @@ public abstract class Animation {
 
     /**
      * @param frameDuration Frame duration in milliseconds.
-     * @param isLoop True if the animation is supposed to play loop.
-     * @param callback The object that will be called when the animation ends.
+     * @param isLoop        True if the animation is supposed to play loop.
+     * @param callback      The object that will be called when the animation ends.
      */
     public Animation(float frameDuration, boolean isLoop, AnimationCallback callback) {
 

@@ -32,8 +32,9 @@ public abstract class ToggleButton extends Button {
 
     /**
      * Draw the HUD element.
+     *
      * @param canvas The canvas on which to draw.
-     * @param param Not used for the main HUD. Can not be null for other HUD elements.
+     * @param param  Not used for the main HUD. Can not be null for other HUD elements.
      */
     @Override
     public void draw(Canvas canvas, DrawingParam param) {

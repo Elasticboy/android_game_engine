@@ -28,6 +28,7 @@ public abstract class Control implements DrawableElement {
      * Intercepts events.
      * Returns true if the event is consumed. and false otherwise.
      * By default a control does not consume the event.
+     *
      * @param event the event to intercepts.
      * @return true if the event is consumed. False otherwise.
      */
@@ -58,6 +59,7 @@ public abstract class Control implements DrawableElement {
 
     /**
      * Define the position coefficient for abscissa and ordinates.
+     *
      * @param xCoef coefficient for abscissa.
      * @param yCoef coefficient for ordinates.
      */

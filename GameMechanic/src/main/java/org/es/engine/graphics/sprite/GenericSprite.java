@@ -27,6 +27,7 @@ public class GenericSprite<AnimationId extends Enum<AnimationId>> implements Spr
 
     /**
      * Sprite constructor.
+     *
      * @param animations
      * @param startAnimationId
      */
@@ -55,6 +56,7 @@ public class GenericSprite<AnimationId extends Enum<AnimationId>> implements Spr
 
     /**
      * The sprite is already resized. No need to apply drawingParam.
+     *
      * @param canvas
      * @param drawingParam
      */

@@ -73,9 +73,7 @@ public abstract class DrawingThread extends Thread {
      *
      * @param running true to run, false to shut down
      */
-    public void setRunning(boolean running) {
-        mRunning = running;
-    }
+    public void setRunning(boolean running) { mRunning = running; }
 
     /** Callback invoked when the surface dimensions change. */
     public void setSurfaceSize(int width, int height) {
@@ -112,19 +110,13 @@ public abstract class DrawingThread extends Thread {
     protected abstract void processEvent(KeyEvent event);
 
     /** Add a motionEvent that will be processed in {@link #update()}. */
-    public boolean addInputEvent(InputEvent event) {
-        return mEventQueue.add(event);
-    }
+    public boolean addInputEvent(InputEvent event) { return mEventQueue.add(event); }
 
     /** @return true if the event queue is not empty. */
-    protected boolean hasNext() {
-        return !mEventQueue.isEmpty();
-    }
+    protected boolean hasNext() { return !mEventQueue.isEmpty(); }
 
     /** Poll the next motionEvent to process. */
-    protected InputEvent pollInputEvent() {
-        return mEventQueue.poll();
-    }
+    protected InputEvent pollInputEvent() { return mEventQueue.poll(); }
 
     /** Draw the new frame. */
     private void draw() {
@@ -147,7 +139,5 @@ public abstract class DrawingThread extends Thread {
      */
     protected abstract void doDraw(Canvas canvas);
 
-    protected Resources getResources() {
-        return mResources;
-    }
+    protected Resources getResources() { return mResources; }
 }

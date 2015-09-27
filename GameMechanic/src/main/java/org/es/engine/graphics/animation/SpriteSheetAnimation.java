@@ -19,11 +19,11 @@ public class SpriteSheetAnimation extends Animation {
     /**
      * Constructor taking a sprite sheet.
      *
-     * @param spriteSheet The Bitmap of the sprite sheet.
-     * @param frames The rectangles to cut the sheet to create the animation.
+     * @param spriteSheet   The Bitmap of the sprite sheet.
+     * @param frames        The rectangles to cut the sheet to create the animation.
      * @param frameDuration Frame duration in milliseconds.
-     * @param isLoop True if the animation is supposed to play loop.
-     * @param callback The object that will be called when the animation ends.
+     * @param isLoop        True if the animation is supposed to play loop.
+     * @param callback      The object that will be called when the animation ends.
      */
     public SpriteSheetAnimation(Bitmap spriteSheet, Rect[] frames, float frameDuration, boolean isLoop, AnimationCallback callback) {
         super(frameDuration, isLoop, callback);

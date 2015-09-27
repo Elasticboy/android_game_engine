@@ -3,7 +3,6 @@ package org.es.engine.toolbox.pathfinding;
 import android.graphics.Point;
 
 import java.util.ArrayList;
-import java.util.BitSet;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;

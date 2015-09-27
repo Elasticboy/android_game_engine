@@ -6,8 +6,6 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-import org.es.engine.game_mechanic.DrawingThread;
-
 /**
  * Parent class for drawing views.
  *
