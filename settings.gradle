@@ -1,6 +1,2 @@
-include ':Graphics'
-include ':Audio'
-include ':GameMechanic'
-include ':ToolBox'
-include ':BaseGameUtils'
-project(':BaseGameUtils').projectDir = new File('libraries/android-basic-sample/BasicSamples/libraries/BaseGameUtils')
+include ':game-mechanic'
+include ':base-game-utils'
